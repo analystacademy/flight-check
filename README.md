@@ -36,13 +36,13 @@ Flight Check is built on the [Agent Skills open standard](https://www.anthropic.
 ### Claude Code
 
 ```bash
-git clone https://github.com/YOUR-ORG/flight-check.git ~/.claude/skills/flight-check
+git clone https://github.com/analystacademy/flight-check.git ~/.claude/skills/flight-check
 ```
 
 Or for a single project:
 
 ```bash
-git clone https://github.com/YOUR-ORG/flight-check.git .claude/skills/flight-check
+git clone https://github.com/analystacademy/flight-check.git .claude/skills/flight-check
 ```
 
 ### Claude API / Claude Platform on AWS / Microsoft Foundry
