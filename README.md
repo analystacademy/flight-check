@@ -45,16 +45,27 @@ Upload via the Skills API and reference by `skill_id`. See the [Anthropic Skills
 
 ### ChatGPT
 
-Open a new chat. Attach your deck (`.pptx` or `.pdf`). Paste the body of [`SKILL.md`](SKILL.md) (everything below the YAML frontmatter) as your first message, followed by: *"Run this checklist on the attached deck."*
+Flight Check is not a native ChatGPT Skill yet, but it works well as a reusable prompt or Custom GPT instruction.
 
-For permanent use: create a Custom GPT, paste the body of `SKILL.md` into the GPT's instructions field, and upload the file as a knowledge document.
+#### One-time use
 
-### Cursor
+1. Open a new ChatGPT conversation
+2. Attach your deck as a `.pptx` or `.pdf`
+3. Paste the body of [`SKILL.md`](SKILL.md), excluding the YAML frontmatter
+4. Add:  
+   > Run a Flight Check on the attached deck.
 
-```bash
-mkdir -p .cursor/rules
-cp SKILL.md .cursor/rules/flight-check.mdc
-```
+For best results, use a model that can read uploaded files and inspect slide content.
+
+#### Permanent use with a Custom GPT
+
+1. Create a new Custom GPT
+2. Paste the body of [`SKILL.md`](SKILL.md), excluding the YAML frontmatter, into the GPT’s Instructions field
+3. Optionally upload `SKILL.md` as a reference file
+4. Start a new conversation with that GPT, attach a deck, and ask:  
+   > Run a Flight Check on this deck.
+
+Important: put the Flight Check instructions in the GPT’s main Instructions field, not only in a knowledge file. Knowledge files are useful for reference, but the checklist works best when the review behavior is part of the GPT’s core instructions.
 
 ### Gemini
 
