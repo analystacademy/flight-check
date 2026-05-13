@@ -8,20 +8,27 @@ Built by [Analyst Academy](https://analystacademy.com).
 
 ## Why this exists
 
-In late 2025, Deloitte shipped a $290K report to the Australian government containing AI-fabricated court quotes and citations to academic papers that don't exist. A researcher caught all of it on first read. Deloitte refunded part of the fee.
+AI is in every analyst's workflow now. So are the problems AI introduces: fabricated citations, numbers that don't match across slides, headlines that describe the topic instead of stating the message, and phrasing that telegraphs "ChatGPT wrote this." Most of those mistakes survive a casual proofread.
 
-If it happened to Deloitte, it'll happen to you. **Flight Check is the pass that catches it before the room does.**
+Flight Check is the pass that catches them before the room does.
 
 ## What it catches
 
-→ **Fake sources** — AI-fabricated studies, invented court quotes, citations to papers that don't exist
-→ **Bad math** — Incorrect arithmetic, percentages that don't add up, numbers that don't match the source
-→ **Contradictions in logic** — Numbers on slide 4 that don't match slide 12, recommendations that contradict findings
-→ **Inconsistent formatting** — `$4B` on one slide, `$4b` on the next; mismatched units; different decimal places
-→ **Weak claims** — "Significant growth," "Strong performance," "The customer" — soft words where numbers or names should be
-→ **AI writing** — "Leverage," "in today's fast-paced world," em-dashes everywhere — the patterns your audience spots before you do
+Flight Check runs six checks across your deck:
 
-The output is a structured report, organized by severity. Critical issues first, polish last. See [examples/sample-report.md](examples/sample-report.md) for what that looks like.
+**1. AI writing tells.** Phrases like "leverage," "in today's fast-paced world," triplet adjectives, em-dashes used as connective tissue, every slide having exactly three bullets — the patterns audiences spot before you do.
+
+**2. Sources that don't hold up.** Fabricated studies, citations to papers that don't exist, "research shows" without a named source, numbers on charts with no citation line, and sources that don't actually say what the slide claims.
+
+**3. Topic-label headlines.** Slide titles like "Market Overview" or "Q3 Performance" that describe what's on the slide instead of stating its message. A reader scanning only titles should get the full story.
+
+**4. Vague claims.** "Significant growth," "strong performance," "the customer" — soft words where numbers, names, or specific mechanisms belong.
+
+**5. Arguments that don't hold together.** Numbers on slide 4 that don't match slide 12, recommendations that don't trace back to findings, breakdowns that overlap or leave gaps.
+
+**6. Polish problems.** Mixed currency formats (`$4B` vs `$4b`), misspelled names, leftover `[TBD]` tags, 3D charts, truncated axes, mismatched fonts — the small things that mark a deck as draft.
+
+The output is a structured report, organized by severity: critical issues first, polish last. See [examples/sample-report.md](examples/sample-report.md) for what that looks like.
 
 ## Two ways to run it
 
@@ -154,7 +161,3 @@ We teach analysts and consultants how to structure, design, and deliver decks th
 - **[Advanced PowerPoint](https://analystacademy.com)** — build faster, build cleaner
 
 Find us at [analystacademy.com](https://analystacademy.com).
-
----
-
-*If Flight Check catches something embarrassing in your deck, you saved yourself the Deloitte moment. That's the whole product.*
