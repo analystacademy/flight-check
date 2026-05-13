@@ -1,78 +1,84 @@
-# Sample Flight Check report
+# Sample Flight Check Report
 
-This is what Flight Check produces when run on a real deck. The deck below contains intentional issues so you can see what each finding type looks like.
+This is what Flight Check produces when run on a slide deck. Paste the [SKILL.md](./SKILL.md) into your AI tool of choice (Claude, ChatGPT, Gemini), share a `.pptx` or `.pdf`, and ask for a flight check — you'll get something like the report below.
 
----
-
-## The input deck
-
-> **SLIDE 1 — Q3 Market Overview**
-> In today's fast-paced world, our strategic initiatives have leveraged comprehensive market analysis to deliver robust outcomes for our stakeholders. We delved into the customer journey to identify significant growth opportunities.
->
-> **SLIDE 2 — Key Findings**
-> — Strong performance across all segments
-> — The customer base expanded considerably
-> — Various improvements were implemented
-> — Total revenue: $4.2B in Q3 (up from $3.8b in Q2)
-> — McKinsey Global Institute (2023) found that 73% of CFOs prioritize this
->
-> **SLIDE 3 — Customer Segmentation**
-> Our analysis reveals three distinct customer cohorts driving substantial value. The first segment, comprising 40% of revenue, demonstrates strong engagement metrics. The second segment accounts for 30% of revenue. The third represents the remaining 35%.
->
-> **SLIDE 4 — Recommendation**
-> We recommend significant investment in segment one to harness untapped potential and unlock new revenue streams. This positions us well moving forward in an increasingly complex landscape.
->
-> **SLIDE 5 — Financial Projections**
-> Pipeline grew to $4.2 billion in Q3 — a substantial increase. Revenue projections for Q4 indicate strong continued growth across all key metrics. Citation: Bloomberg Industry Report, "Future of Enterprise Tech," 2024.
+**About the deck:** Lumen Workflow's $12M Series A pitch — a fictional AI-native workflow automation startup at $4.8M ARR with 142 customers. 50 slides. The deck was built specifically to demonstrate Flight Check; every flagged issue is something the skill surfaced in a single pass.
 
 ---
 
-## The Flight Check output
+## Flight Check: Lumen Workflow Series A Deck
 
-### Flight Check: Q3 Market Overview Deck
+### Critical issues (fix before sending)
 
-#### Critical issues (fix before sending)
+- **Slide 25 (Traction) — "18% NRR" is almost certainly a typo for "118%."** Slides 34, 41, and 45 all state NRR is 118%. As shown, "18% NRR" would mean customers are shrinking 82% YoY — the description right under it ("expansion offsets churn 5x over") cannot be true at 18%. Any investor will catch this in the first 30 seconds.
 
-- **Slide 3, "Customer Segmentation":** Segmentation percentages sum to **105%**, not 100% (40% + 30% + 35%). This is the number that will get called out in the room.
-- **Slide 2, "Key Findings":** Inconsistent unit formatting — *"$4.2B in Q3 (up from $3.8b in Q2)"*. Capital B and lowercase b mixed in the same line.
-- **Slide 2, "Key Findings":** Citation *"McKinsey Global Institute (2023) found that 73% of CFOs prioritize this"* — verify this specific report exists. The Global Institute is real, but AI fabricates plausible-sounding McKinsey reports constantly. If you can't find this study in MGI's public catalog, the number is suspect.
-- **Slide 5, "Financial Projections":** Citation *"Bloomberg Industry Report, 'Future of Enterprise Tech,' 2024"* — verify before sending. The report title is generic enough to be fabricated.
+- **Slide 25 — "$4M ARR" headline contradicts "$4.8M ARR" everywhere else** (exec summary slide 3, milestones slide 41). The caption directly below the $4M circle says "Annualized recurring revenue at Oct 2025" — i.e., the same number that's $4.8M on slide 41. Either round consistently or use the exact figure; don't do both on the same deck.
 
-#### High-priority issues (fix if time allows)
+- **Slide 25 — "142 Customer" is mislabeled.** Should be "142 Customers" (plural), and the caption "Customers added Q3 2025; 88% from inbound demand or word of mouth" reads as if 142 were added in Q3, contradicting the 142-total in the exec summary. Rewrite the caption to make clear 142 is the cumulative total.
 
-- **Slide 1, title:** "Q3 Market Overview" is a topic label, not a finding. What's the message of the slide? *Example rewrite: "Q3 revenue grew on the strength of three segments — but one is at risk."*
-- **Slide 1, body:** *"In today's fast-paced world"* — stock AI opener. Cut it; nothing else in the sentence depends on it.
-- **Slide 1, body:** *"leveraged comprehensive market analysis"* — both "leveraged" and "comprehensive" are AI-pattern words. The sentence works without them.
-- **Slide 1, body:** *"delved into the customer journey"* — "delved" is currently the most-recognized AI tell on the internet. Replace with "studied" or "mapped."
-- **Slide 1, body:** *"stakeholders"* — name them. Who specifically? Customers, the board, regulators?
-- **Slide 2, bullet 1:** *"Strong performance across all segments"* — adjective hiding a number. What growth rate? Across which segments?
-- **Slide 2, bullet 2:** *"The customer base expanded considerably"* — by how much? Which customer base?
-- **Slide 2, bullet 3:** *"Various improvements were implemented"* — vague catch-all. List them, or cut the bullet.
-- **Slide 4, body:** *"significant investment"* — how much? In dollars or as a percentage of budget?
-- **Slide 4, body:** *"harness untapped potential and unlock new revenue streams"* — three AI-pattern verbs in one phrase. Rewrite as a specific mechanism.
-- **Slide 4, body:** *"moving forward in an increasingly complex landscape"* — filler. Cut.
+- **Slide 31 (Unit econ) — "xxx" placeholder still on the slide, plus all five headline stats are shifted one column to the left.** The description for "Magic #" says sales efficiency is 1.4, but the headline reads "xxx." Worse, the other four headlines (4.2x / 41% / 19% / 73%) don't match the labels they sit above — 4.2x belongs to LTV/CAC, not Lead; 41% belongs to Lead, not Trial; and so on down the row. Every headline number needs to move one position right, and "xxx" needs to become "1.4."
 
-#### Polish issues (catch on a final read)
+- **Slide 26 (Pelican case study) — customer name spelled two ways.** "VP Ops, Pelica" in M. Chen's title, "Pelican is a 600-person fintech…" in the body. Same slide. Pick one (presumably "Pelican") and fix the title.
 
-- Em-dashes used as connective tissue on most slides — vary punctuation or break into shorter sentences.
-- Slide titles 2, 3, 4, 5 are all noun phrases ("Key Findings," "Customer Segmentation," etc.). Read only the titles in order — do they tell the story? Currently they don't.
-- Slide 3 mentions "strong engagement metrics" without showing the metric. Either show the number or drop the claim.
+- **Slides 7, 8, 9, 11, 15 — every external market and pain-point stat is unsourced.** Specifically: "$48B TAM," "23% CAGR through 2030," "$9.2B SAM," "$640M SOM," "$1.2M waste per year," "23 hours per week maintaining automations," "62% break weekly," "six weeks of senior engineer time per quarter." AI-assisted decks fabricate plausible-sounding stats constantly. Treat every one of these as suspect until you can produce the primary source. Add footnote citations ("Source: [Org], [Year]") under each figure.
 
-#### What's working
+- **Internal contradiction in the cost-of-inaction stats.** Slide 7 says "23 hours per week" (≈58% of a 40-hr week). Slide 8 says "23% ops time on upkeep" — different number, but the visual makes them look like the same finding. Slide 8 also says "six weeks of senior engineer time per quarter" (≈46% of senior eng capacity). The three figures cannot all be true of the same population. Reconcile them — or pick the one that's actually sourced and drop the others.
 
-- The deck has a clear three-act structure: market view → segmentation → recommendation. The bones are good.
-- Real quarterly comparison attempted on slide 2 ($4.2B vs $3.8B). Format inconsistency aside, the comparison is the right kind of evidence.
-- Slide 4 makes an actual recommendation rather than just describing options.
+### High-priority issues (fix if time allows)
 
-#### Suggested next step
+- **Slide 15 (By numbers) — every dollar figure wraps mid-number** because the text boxes are too narrow: "$48B" renders as "$48 / B," "$9.2B" as "$9. / 2B," "$640M" as "$64 / 0M." The middle one looks like "$9 dot 2B." Widen the circles or shrink the font; the headline numbers must read as single tokens.
 
-Fix the segmentation math on slide 3. That single error is the one that will get called out in the room and undermine everything else in the deck.
+- **MoM growth claim is mathematically inconsistent with the milestones.** Exec summary says "growing 18% MoM." But slide 41 says you crossed $1M ARR in Sept 2024 and hit $4.8M in Oct 2025 — that's 4.8× over 13 months, or ~12.7% average MoM. If 18% is a recent inflection, say so explicitly ("18% MoM for the last six months"). Otherwise the number won't survive due-diligence math.
+
+- **Slide 33 sales funnel math doesn't ground.** 3.2k MQLs/quarter × 23% × 31% = ~228 wins per quarter, or ~900 customers per year. But the deck says total customers = 142. The funnel either describes a future state, a single channel, or fabricated rates — say which.
+
+- **Slide 28 revenue streams sum to 99%.** Platform 76% + Add-ons 11% + Services 12% = 99%. Usage has no percentage. If Usage really is 1%, the description "scales with customer success" oversells it; if it's higher, the other percentages are off.
+
+- **Slide 37 (Compare) — Lumen wins every row.** Agent-native, auto-recovery, audit trail: Lumen "Yes / Native / Replay" while Zapier, Workato, n8n all score worse on all three. Sophisticated audiences distrust matrices where the seller wins everything. Add at least one row where a competitor is at par or ahead, or pick categories where the result is more nuanced.
+
+- **Slide 40 (Leadership) — half the names are first-name-only or single-letter last names.** "Alex P," "Tara," "Omar," "Eva," "Sam B," "Pat L" sit next to full names like "Sara Liu" and "Dan Kim." For a Series A, every leader needs a full name plus a one-line credential. Also: 11 senior leaders at $4.8M ARR is top-heavy and will draw questions — be ready to defend or consolidate.
+
+- **Slide 49 (5-year vision) — "Dominate the $9B SAM by 2028 with 1,000+ customers" alongside "$100M ARR by end of 2028."** $100M of $9B is ~1.1% share. That's a strong outcome, but it's not dominance. The language overreaches against the math on the same slide.
+
+- **Topic-label titles throughout.** Most slide titles state the topic rather than the message: "The Problem" (s6), "The Cost of Doing Nothing" (s8), "The Market" (s10), "Position" (s14), "By numbers" (s15), "How it works" (s16), "Compare" (s37), "Differentiation" (s38), "Unit econ" (s31). Run the skim test — read titles 1–50 in order. They tell you the agenda, not the argument. Each one needs a rewrite to a finding (e.g., s8 → "Mid-market firms waste $1.2M/yr on automation upkeep [Source]"; s37 → "Lumen is the only platform that's agent-native and replay-auditable").
+
+- **AI-tell patterns are pervasive.** Every framework in the deck is exactly three steps: Connect/Decide/Execute (s16), Describe/Deploy/Monitor (s20), Adaptive/Audited/Governed (s18), Land/Expand/Defend (s34), Direct/Channel/PLG (s35), Top/SQO/Won (s33), plus the three "pillars," "shifts," and "pillars of the deck." Em-dashes appear on roughly half the content slides. Combined with the unsourced stats, this is the pattern that makes audiences ask "did an AI write this?" — break the rhythm: use a 2-step framework, a 4-step framework, anything that isn't another triplet.
+
+- **Slide 18 — "Three pillars of the deck"** should be "of the platform" or "of the product." Pillars are of the thing being sold, not of the slide deck.
+
+- **Slide 13 — segment labels truncated/typo'd:** "SaaS/Fintec" and "E-comm/Retl." Fix to full words.
+
+- **Slide 35 — column header "Direct / Channel"** sits above rows labeled "Direct / Partner / PLG." The header categories don't match the row categories; PLG isn't a channel partnership. Re-label.
+
+### Polish issues (catch on a final read)
+
+- **Slide 1 — "Lumen - Business Plan Deck."** It's a Series A pitch; "business plan deck" is the wrong genre label. Either "Series A" alone or "Lumen — Series A Pitch."
+
+- **Slides 46 and 48 — both titled "Roadmap."** Distinguish them (e.g., s46 = "Operating Roadmap (12 months)" and s48 = "Milestones to Series B").
+
+- **Slide 24 chart label "MAU & Cust"** — abbreviated, and MAU is an odd metric for B2B SaaS at this stage (you typically track logos, seats, or workspace activity). Spell it out and pick the right denominator.
+
+- **Slides 23, 24, 29, 43, 44 — chart titles are topic labels** ("Quarterly revenue," "Customer growth," "Revenue mix," "3-year projection," "Cost & margin"). Headlines on data slides should be the finding ("ARR has compounded 4.8× in 13 months"), not the topic.
+
+- **Slide 44 — visible "Category A" / "Category B" labels** on the margin chart axis. Those are PowerPoint default chart placeholders that didn't get replaced.
+
+- **Slide 45 — "NRR has stayed above 110% for the last six quarters."** Platform went GA in Mar 2024 (slide 41), so six quarters back from Q3 2025 lands at Q2 2024 — one quarter after GA. NRR measured one quarter after launch is mathematically possible but commercially thin. Be ready to defend the lookback window.
+
+- **Slide 21 — "Numbers reflect the median of 142 paying customers measured across Q3 2025."** Tighten — clarify whether the 73% / 94% / 4.2× are measured on all 142 customers or a subset, and over what tenure.
+
+- **Deck date is Nov 2025.** If you're presenting now, refresh the date; if you're presenting against historical numbers, make that explicit.
+
+### What's working
+
+- **Slide 26 (Pelican case study) — concrete, specific outcomes.** "Two engineers redeployed within the first quarter," "books closed two days faster," "tier-1 resolution from 18 hours to under 4." This is the specificity level the rest of the deck needs.
+- **Slide 47 (Use of funds) — the math holds and the asks are specific.** 55% / 30% / 15% × $12M is correct, 14 AEs and 6 SEs is concrete, 30-month runway reconciles with the exec summary.
+- **Slide 30 pricing — three named tiers at $1,200 / $4,800 / $14,400/month with ARPU growth $19K → $34K** is the kind of internal data you can defend in diligence.
+- **One positioning line lands:** "iPaaS gives you the wires; we give you the brain that decides what to do with them" (s14). That sentence should probably appear on the executive summary slide.
+
+### Suggested next step
+
+Fix slide 25 (18% → 118%, $4M → $4.8M, Customer → Customers), slide 26 (Pelica → Pelican), and slide 31 (shift headline stats one column right, replace "xxx" with "1.4") before doing anything else. Those four edits remove the credibility-killers any investor will catch in the first pass. Then go hunt down primary sources for every market and pain-point stat on slides 7, 8, 9, 11, and 15 — the unsourced numbers are the deeper risk.
 
 ---
 
-## Notes on this output
-
-- Every flagged item quotes the **exact text** from the deck, so you can find it instantly.
-- Items are organized by **severity**, not slide number — what could break the presentation comes first.
-- "What's working" exists so you know which patterns to keep, not to soften the critique.
-- Citations are flagged for **manual verification** rather than confirmed-fake. The skill can't verify against external databases — that's a Tier 3 feature for a future version. For now, it flags suspicious patterns so you can check yourself.
+*Generated by [Flight Check](./SKILL.md). For more examples or to learn how to run this on your own decks, see the [README](./README.md).*
