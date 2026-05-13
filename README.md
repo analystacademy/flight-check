@@ -6,12 +6,6 @@ Built by [Analyst Academy](https://analystacademy.com).
 
 ---
 
-## Why this exists
-
-In late 2025, Deloitte shipped a $290K report to the Australian government containing AI-fabricated court quotes and citations to academic papers that don't exist. A researcher caught all of it on first read. Deloitte refunded part of the fee.
-
-If it happened to Deloitte, it'll happen to you. **Flight Check is the pass that catches it before the room does.**
-
 ## What it catches
 
 → **Fake sources** — AI-fabricated studies, invented court quotes, citations to papers that don't exist
