@@ -8,9 +8,9 @@ Built by [Analyst Academy](https://analystacademy.com).
 
 ## Why this exists
 
-AI is in every analyst's workflow now. So are the problems AI introduces: fabricated citations, numbers that don't match across slides, headlines that describe the topic instead of stating the message, and phrasing that telegraphs "ChatGPT wrote this." Most of those mistakes survive a casual proofread.
+AI is in everyone's workflow now. So are the problems AI introduces: fabricated citations, numbers that don't match across slides, headlines that describe the topic instead of stating the message, and phrasing that telegraphs "ChatGPT wrote this." Most of those mistakes survive a casual proofread.
 
-Flight Check is the pass that catches them before the room does.
+Flight Check is the pass that catches them.
 
 ## What it catches
 
