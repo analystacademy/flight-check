@@ -1,10 +1,16 @@
 # Flight Check
 
-> A final-pass review for slide decks before they go in front of an audience. Free, open-source, works on every major AI.
+> A final-pass review for slide decks before they go in front of an audience. Free, open-source, runs natively on Claude — and pastes into any other AI.
 
 Built by [Analyst Academy](https://analystacademy.com).
 
 ---
+
+## Why this exists
+
+In late 2025, Deloitte shipped a $290K report to the Australian government containing AI-fabricated court quotes and citations to academic papers that don't exist. A researcher caught all of it on first read. Deloitte refunded part of the fee.
+
+If it happened to Deloitte, it'll happen to you. **Flight Check is the pass that catches it before the room does.**
 
 ## What it catches
 
@@ -17,79 +23,109 @@ Built by [Analyst Academy](https://analystacademy.com).
 
 The output is a structured report, organized by severity. Critical issues first, polish last. See [examples/sample-report.md](examples/sample-report.md) for what that looks like.
 
-## Install
+## Two ways to run it
 
-Flight Check is built on the [Agent Skills open standard](https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills), which means it runs natively on Claude and works as a paste-in prompt everywhere else.
+Flight Check is built on the [Agent Skills open standard](https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills). That gives you two ways to use it:
+
+**1. Native skill (Claude only).** On Claude.ai, Claude Code, the Claude API, and Claude on AWS Bedrock or Microsoft Foundry, Flight Check installs as a proper skill. It activates automatically when you share a deck and ask for a review.
+
+**2. Paste-in prompt (everywhere else).** ChatGPT, Gemini, Microsoft Copilot, Perplexity, Cursor — and basically any other chatbot — can run Flight Check too. You paste the instructions in as a custom instruction or first message. The checklist is the same; you trigger it manually instead of automatically.
+
+The instructions live in [`SKILL.md`](SKILL.md). Everything below the YAML block at the very top is the part you paste into non-Claude tools. The packaged `flight-check.skill` file is for Claude.ai uploads specifically — other platforms can't read it.
+
+---
+
+## Install
 
 ### Claude.ai (paid plans)
 
-1. Download [`flight-check.skill`](flight-check.skill) from this repo
-2. Open Claude.ai → Settings → Capabilities → Skills
-3. Upload the `.skill` file
+1. Download [`flight-check.skill`](flight-check.skill) from this repo.
+2. In Claude.ai, open **Settings → Capabilities → Skills**.
+3. Click **Upload skill** and pick the file.
+
+Then drop a deck into a chat and ask for a Flight Check.
 
 ### Claude Code
 
-```bash
+In your terminal, install for all projects:
+
+```
 git clone https://github.com/analystacademy/flight-check.git ~/.claude/skills/flight-check
 ```
 
-Or for a single project:
+Or just one project:
 
-```bash
+```
 git clone https://github.com/analystacademy/flight-check.git .claude/skills/flight-check
 ```
 
-### Claude API / Claude Platform on AWS / Microsoft Foundry
+### Claude API / Claude on AWS Bedrock / Claude on Microsoft Foundry
 
 Upload via the Skills API and reference by `skill_id`. See the [Anthropic Skills documentation](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview).
 
-### ChatGPT
+### ChatGPT — one-off use
 
-Flight Check is not a native ChatGPT Skill yet, but it works well as a reusable prompt or Custom GPT instruction.
+1. Open [`SKILL.md`](SKILL.md) and copy everything *below* the YAML block at the top.
+2. Start a new ChatGPT chat and attach your deck (`.pptx` or `.pdf`).
+3. Paste the SKILL.md body as your first message, then add: *"Run this checklist on the attached deck."*
 
-#### One-time use
+### ChatGPT — permanent setup (Custom GPT)
 
-1. Open a new ChatGPT conversation
-2. Attach your deck as a `.pptx` or `.pdf`
-3. Paste the body of [`SKILL.md`](SKILL.md), excluding the YAML frontmatter
-4. Add:  
-   > Run a Flight Check on the attached deck.
-
-For best results, use a model that can read uploaded files and inspect slide content.
-
-#### Permanent use with a Custom GPT
-
-1. Create a new Custom GPT
-2. Paste the body of [`SKILL.md`](SKILL.md), excluding the YAML frontmatter, into the GPT’s Instructions field
-3. Optionally upload `SKILL.md` as a reference file
-4. Start a new conversation with that GPT, attach a deck, and ask:  
-   > Run a Flight Check on this deck.
-
-Important: put the Flight Check instructions in the GPT’s main Instructions field, not only in a knowledge file. Knowledge files are useful for reference, but the checklist works best when the review behavior is part of the GPT’s core instructions.
+1. Go to **Create a GPT** in ChatGPT.
+2. In the **Instructions** field, paste the body of `SKILL.md`.
+3. Under **Knowledge**, upload `SKILL.md` as a file.
+4. Save. From then on, attach a deck to that GPT and say "Run Flight Check."
 
 ### Gemini
 
-Create a Gem, paste the body of `SKILL.md` into the custom instructions field.
+1. Open **Gems** in Gemini.
+2. Create a new Gem and paste the body of `SKILL.md` into the custom instructions field.
+3. Save. Attach a deck and ask for a Flight Check.
 
-### Anywhere else
+### Microsoft Copilot
 
-The body of `SKILL.md` is plain Markdown. Paste it as a system prompt, custom instruction, or the first message of any AI conversation, then share your deck.
+1. In Copilot, create a new **Agent** (or open the agent builder).
+2. Paste the body of `SKILL.md` into the instructions field.
+3. Save and use it the same way — attach a deck and run the check.
+
+### Perplexity
+
+1. Create a new **Space**.
+2. Paste the body of `SKILL.md` into the Space's **AI Instructions**.
+3. Drop your deck into a thread inside that Space and ask for a Flight Check.
+
+### Cursor (and other coding AIs)
+
+Save the body of `SKILL.md` as a rules file in your project:
+
+```
+mkdir -p .cursor/rules
+cp SKILL.md .cursor/rules/flight-check.mdc
+```
+
+Windsurf and similar tools have their own rules folders — same idea, different path.
+
+### Any other AI
+
+The body of `SKILL.md` is plain Markdown and model-agnostic. Open any chatbot, paste the body in as your first message or system prompt, then share your deck.
+
+---
 
 ## How to use it
 
 After installing, do one of these:
 
-- **Drop your deck into Claude.ai** and ask "Run a Flight Check on this"
-- **Paste slide text** and ask for a review
-- **In Claude Code**, run `/flight-check` after sharing a deck file
+- **In Claude.ai**, drop your deck in and ask "Run a Flight Check on this."
+- **In Claude Code**, share a deck file and run `/flight-check`.
+- **In any other AI**, paste the SKILL.md body, attach your deck, and say "Run this checklist on the attached deck."
 
-The skill activates automatically when you share a deck and ask for a review. Output is the structured report with specific slide numbers and quoted text.
+Output is a structured report with specific slide numbers and quoted text.
 
 ## What it won't do
 
-- It won't redesign your slides
-- It won't write new content for slides that need rebuilding
-- It won't replace your own final read
+- It won't redesign your slides.
+- It won't write new content for slides that need rebuilding.
+- It won't replace your own final read.
 
 Use it as a sweep *before* you do that final read, not instead of it.
 
@@ -97,7 +133,7 @@ Use it as a sweep *before* you do that final read, not instead of it.
 
 ```
 flight-check/
-├── SKILL.md              # The skill itself
+├── SKILL.md              # The instructions
 ├── README.md             # This file
 ├── LICENSE               # MIT
 ├── flight-check.skill    # Packaged version for Claude.ai upload
